@@ -4,13 +4,14 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Divider
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
@@ -58,7 +59,8 @@ fun QuoteScreen(
                     ),
                     elevation = CardDefaults.cardElevation(
                         defaultElevation = 10.dp
-                    )
+                    ),
+                    modifier = modifier.fillMaxWidth()
                 ) {
                     Column(
                         modifier = modifier
@@ -71,6 +73,9 @@ fun QuoteScreen(
                                 text = it
                             )
                         }
+                        Spacer(modifier = modifier.height(12.dp))
+                        Divider()
+                        Spacer(modifier = modifier.height(12.dp))
                         state.quote?.author?.let {
                             Text(
                                 text = it
@@ -88,7 +93,7 @@ fun QuoteScreen(
                         containerColor = Color.Transparent,
                     ),
                     shape = RoundedCornerShape(5.dp),
-                    onClick = { /*TODO*/ }
+                    onClick = { event(QuoteEvent.ButtonClicked) }
                 ) {
                     Text(text = "Quote")
                 }
