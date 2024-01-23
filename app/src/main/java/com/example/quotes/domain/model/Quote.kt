@@ -1,5 +1,6 @@
 package com.example.quotes.domain.model
 
+import com.example.quotes.data.remote.dto.QuoteDto
 
 
 data class Quote(

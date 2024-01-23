@@ -6,3 +6,6 @@ data class QuoteState(
     val isLoading: Boolean = false,
     val quote: QuoteDto? = null
 )
+
+
+

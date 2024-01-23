@@ -20,11 +20,19 @@ class QuoteViewModel @Inject constructor(
     private val _state = MutableStateFlow(QuoteState())
     val state = _state.asStateFlow()
 
-    init {
-        getquote()
+    fun OnEvent(event: QuoteEvent){
+        when(event){
+            QuoteEvent.ButtonClicked -> {
+                getQuote()
+            }
+        }
     }
 
-    private fun getquote(){
+    init {
+        getQuote()
+    }
+
+    private fun getQuote(){
         viewModelScope.launch {
             repository.getQuote().collectLatest { quote ->
                 when(quote){

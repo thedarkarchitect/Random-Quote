@@ -1,6 +1,7 @@
 package com.example.quotes.data.remote.dto
 
 
+import com.example.quotes.domain.model.Quote
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

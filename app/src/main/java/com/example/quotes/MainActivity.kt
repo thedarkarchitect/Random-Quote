@@ -30,7 +30,10 @@ class MainActivity : ComponentActivity() {
                 ) {
                     val viewModel = hiltViewModel<QuoteViewModel>()
                     val state = viewModel.state.collectAsState().value
-                    QuoteScreen(state = state)
+                    QuoteScreen(
+                        state = state,
+                        event = viewModel::OnEvent
+                    )
                 }
             }
         }
